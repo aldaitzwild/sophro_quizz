@@ -4,11 +4,13 @@
 
 {% block body %}
     <main class="container-fluid d-flex align-items-center justify-content-center">
-        <div id="home_open_menu" class="col-12 col-lg-4  border border-4 rounded-pill text-center bg-white">
+        <div id="home_open_menu" class="col-12 col-lg-4  border border-4 rounded text-center bg-white">
             <h3>Ce quizz est terminé</h3>
 
-            <p>
-                <iframe src="https://giphy.com/embed/8UF0EXzsc0Ckg" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            <p class="row col-12">
+                <div class="col-12">
+                    <img class="img-fluid mx-auto d-block" src="https://i.giphy.com/8UF0EXzsc0Ckg.gif">
+                </div>
             </p>
 
             <h1 class="{% if score >= total / 2 %}text-success{% else %}text-danger{% endif %}">
