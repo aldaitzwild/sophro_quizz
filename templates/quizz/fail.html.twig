@@ -3,7 +3,7 @@
 {% block body %}
     <main class="container-fluid d-flex flex-column align-items-center justify-content-center">
             <div class="col-12 col-lg-8 border border-4 rounded text-center bg-white">
-                <h3>Mauvaise réponse 😠!</h3>
+                <h3 class="fs-1">Mauvaise réponse 😠!</h3>
 
                 <p class="row col-12">
                     <div class="col-12">
@@ -12,9 +12,9 @@
                 </p>
 
                 {% if nextquizz is not null %}
-                    <a href="{{ path('quizz_show', {id: nextquizz.id})}}">Question suivante</a>
+                    <a class="fs-1" href="{{ path('quizz_show', {id: nextquizz.id})}}">Question suivante</a>
                 {% else %}
-                    <a href="{{ path('game_finished', {id: game.id})}}">Résultat !</a>
+                    <a class="fs-1" href="{{ path('game_finished', {id: game.id})}}">Résultat !</a>
                 {% endif %}
             </div>
 
@@ -26,7 +26,7 @@
                             bg-success
                         {% else %}
                             bg-danger
-                        {% endif %}">
+                        {% endif %} fs-1">
                             {{ answer.text }}
                         </div>
                     </div>

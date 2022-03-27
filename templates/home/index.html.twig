@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <main class="container-fluid d-flex align-items-center justify-content-center">
-        <div class="col-12 col-lg-4  border border-4 rounded-pill text-center p-3 pill_question">
-            <h3>Sophro quizz</h3>
+    <main class="container-fluid d-lg-flex align-items-center justify-content-center">
+        <div class="col-12 col-lg-4  border border-4 rounded-pill text-center p-3 pill_question mt-5">
+            <h3 class="fs-1">Sophro quizz</h3>
 
-            <a href="{{ path('game_start')}}">Commencer le quizz !</a>
+            <a href="{{ path('game_start')}}" class="fs-2">Commencer le quizz !</a>
         </div>
     </main>
 {% endblock %}

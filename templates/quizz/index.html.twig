@@ -3,20 +3,20 @@
 {% block body %}
     <main class="container-fluid d-lg-flex flex-column justify-content-center align-items-center">
         <div class="col-12 col-lg-6  border border-4 rounded-pill text-center p-3 mb-5 bg-white">
-            <h3>{{ quizz.question.text }}</h3>
+            <h3 class="fs-1">{{ quizz.question.text }}</h3>
         </div>
 
         <form method="post" class="col-12 col-lg-6 border border-dark border-4 rounded pb-2 mt-5 row g-3">
             {% for answer in answers %}
                 <div class="col-12 col-lg-6">
-                    <button type="button" class="answerBtn col-12 border border-dark border-2 rounded-pill text-center p-4 p-lg-3 bg-white">
+                    <button type="button" class="answerBtn col-12 border border-dark border-2 rounded-pill text-center p-4 p-lg-3 bg-white fs-1">
                         <input type="hidden" name="answer_{{ answer.id }}" value="false">
                         {{ answer.text }}
                     </button>
                 </div>
             {% endfor %}
             <div class="col-12 mt-5">
-                <button type="submit" class="col-12 border border-dark border-3 btn btn-success">Valider</button>
+                <button type="submit" class="col-12 border border-dark border-3 btn btn-success fs-1">Valider</button>
             </div>
         </form>
     </main>

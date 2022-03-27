@@ -5,7 +5,7 @@
 {% block body %}
     <main class="container-fluid d-flex align-items-center justify-content-center">
         <div id="home_open_menu" class="col-12 col-lg-4  border border-4 rounded text-center bg-white">
-            <h3>Ce quizz est terminé</h3>
+            <h3 class="fs-1">Ce quizz est terminé</h3>
 
             <p class="row col-12">
                 <div class="col-12">
@@ -13,11 +13,11 @@
                 </div>
             </p>
 
-            <h1 class="{% if score >= total / 2 %}text-success{% else %}text-danger{% endif %}">
+            <h1 class="{% if score >= total / 2 %}text-success{% else %}text-danger{% endif %} fs-1">
                 {{ score }} / {{ total }}
             </h1>
 
-            <a href="{{ path('app_home')}}">Retour à l'accueil</a>
+            <a class="fs-1" href="{{ path('app_home')}}">Retour à l'accueil</a>
         </div>
     </main>
 {% endblock %}
