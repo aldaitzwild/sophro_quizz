@@ -1,0 +1,17 @@
+main {
+    height: 100vh;
+    background-color: rgb(24, 99, 240);
+}
+
+.pill_question {
+    background-color: white;
+}
+
+.answerBtn {
+    transition: 0.5s;
+}
+
+.selectedBtn {
+    font-weight: bold;
+    background-color: rgb(18, 138, 236);
+}

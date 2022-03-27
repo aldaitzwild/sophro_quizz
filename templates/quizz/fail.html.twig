@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main class="container-fluid d-flex flex-column align-items-center justify-content-center">
+            <div class="col-12 col-lg-8 border border-4 rounded-pill text-center bg-white">
+                <h3>Mauvaise réponse 😠!</h3>
+
+                <p class="row">
+                    <iframe src="https://giphy.com/embed/{{ gif }}" allowfullscreen></iframe>
+                </p>
+
+                {% if nextquizz is not null %}
+                    <a href="{{ path('quizz_show', {id: nextquizz.id})}}">Question suivante</a>
+                {% else %}
+                    <a href="{{ path('game_finished', {id: game.id})}}">Résultat !</a>
+                {% endif %}
+            </div>
+
+            <div class="col-12 col-lg-8 border border-dark border-4 rounded pb-2 mt-5 row g-3">
+                {% for answer in quizz.question.answers %}
+                    <div class="col-12 col-lg-6">
+                        <div class="col-12 border border-dark border-2 rounded-pill text-center p-4 p-lg-3 
+                        {% if answer.isCorrect %}
+                            bg-success
+                        {% else %}
+                            bg-danger
+                        {% endif %}">
+                            {{ answer.text }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+    </main>
+{% endblock %}

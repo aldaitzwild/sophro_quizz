@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <main class="container-fluid d-flex align-items-center justify-content-center">
+        <div class="col-12 col-lg-6 border border-4 rounded-pill text-center bg-white">
+            <h3>Bonne réponse 🤩!</h3>
+
+            <p class="row">
+                <iframe src="https://giphy.com/embed/{{ gif }}" allowfullscreen></iframe>
+            </p>
+
+            {% if nextquizz is not null %}
+                <a href="{{ path('quizz_show', {id: nextquizz.id})}}">Question suivante</a>
+            {% else %}
+                <a href="{{ path('game_finished', {id: game.id})}}">Résultat !</a>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}
