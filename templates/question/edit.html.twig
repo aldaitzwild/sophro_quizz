@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Question{% endblock %}
+{% block title %}Modifier la question{% endblock %}
 
 {% block body %}
-    <h1>Edit Question</h1>
+    <h1 class="text-center">Modifier la question</h1>
 
     {{ include('question/_form.html.twig', {'button_label': 'Update'}) }}
+{% endblock %}
 
-    <a href="{{ path('app_question_index') }}">back to list</a>
-
-    {{ include('question/_delete_form.html.twig') }}
+{% block javascripts %}
+    <script src="/js/admin_answer_script.js"></script>
 {% endblock %}

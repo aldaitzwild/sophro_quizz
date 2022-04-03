@@ -3,35 +3,54 @@
 {% block title %}Question index{% endblock %}
 
 {% block body %}
-    <h1>Question index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Text</th>
-                <th>IsActive</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for question in questions %}
-            <tr>
-                <td>{{ question.id }}</td>
-                <td>{{ question.text }}</td>
-                <td>{{ question.isActive ? 'Yes' : 'No' }}</td>
-                <td>
-                    <a href="{{ path('app_question_show', {'id': question.id}) }}">show</a>
-                    <a href="{{ path('app_question_edit', {'id': question.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <main class="container bg-light">
+        <p class="text-end fs-5 p-2">
+            <a href="{{ path('app_logout') }}">Se déconnecter</a>
+        </p>
 
-    <a href="{{ path('app_question_new') }}">Create new</a>
+        <h1 class="text-center">Liste des questions</h1>
+
+        <a href="{{ path('app_question_new') }}"><button class="btn btn-primary mb-3">Créer une nouvelle question</button></a>
+
+        <table class="table table-light table-striped">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Nb de question</th>
+                    <th>Active ?</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for question in questions %}
+                <tr>
+                    <td>{{ question.text }}</td>
+                    <td>{{ question.answers|length }}</td>
+                    <td>{{ question.isActive ? 'Oui' : 'Non' }}</td>
+                    <td>
+                        <a href="{{ path('app_question_edit', {'id': question.id}) }}">
+                            <button class="btn btn-primary">Modifier</button>
+                        </a>
+
+                        {% if question.isActive %}
+                            <a href="{{ path('app_question_inactive', {'id': question.id}) }}">
+                                <button class="btn btn-danger">Désactiver</button>
+                            </a>
+                        {% else %}
+                            <a href="{{ path('app_question_active', {'id': question.id}) }}">
+                                <button class="btn btn-success">Activer</button>
+                            </a>
+                        {% endif %}
+                        
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </main>
 {% endblock %}

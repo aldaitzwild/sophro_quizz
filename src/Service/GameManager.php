@@ -30,7 +30,7 @@ class GameManager {
 
         $this->gameRepository->add($game);
 
-        $questions = $this->questionRepository->findAll();
+        $questions = $this->questionRepository->findAllActive();
         $questionIndex =  array_rand($questions, $nbOfQuestions);
         shuffle($questionIndex);
 

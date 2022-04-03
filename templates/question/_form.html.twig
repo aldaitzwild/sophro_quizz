@@ -1,4 +1,38 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{% set answerCount = question.answers|length %}
+<form method="post" class="container bg-light p-5 rounded">
+    <h1>Question</h1>
+    <p>
+        <label for="question" class="form-label">Question : </label>
+        <input type="text" id="question" name="text" class="form-control" value="{{question.text}}">
+    </p>
+
+    <input type="hidden" name="answerCount" id="answerCount" value="{{answerCount}}">
+
+    <div id="answerContainer" class="bg-secondary bg-opacity-10 rounded p-5">
+        <h2>Réponses</h2>
+        {% for answer in question.answers %}
+            <p class="answer d-flex gap-3 p-3 border rounded bg-secondary {% if answer.isCorrect %}
+                                bg-success
+                            {% endif %}">
+                <input type="text" class="form-control" 
+                        name="{{loop.index}}_anwser" id="{{loop.index}}_anwser" value="{{answer.text}}">
+                <input onchange="changeBgParent(this);" class="form-check-input" type="checkbox" name="{{loop.index}}_anwser_correct" id="{{loop.index}}_anwser_correct"
+                    {% if answer.isCorrect %}
+                        checked
+                    {% endif %}
+                >
+            </p>
+        {% endfor %}
+        
+    </div>
+    <button class="btn btn-success mt-3 mb-4" id="addAnswerBtn">+</button>
+    <label>Ajouter une question</label>
+
+    <p>
+        <button type="submit" class="btn btn-primary btn-lg">Sauvegarder</button>
+    </p>
+
+    <p>
+        <a href="{{ path('app_question_index') }}">Retour</a>
+    </p>
+</form>

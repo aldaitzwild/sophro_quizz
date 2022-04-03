@@ -45,6 +45,32 @@ class QuestionRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+      * @return Question[] Returns an array of Question objects
+      */
+    public function findAllWithAnswers()
+    {
+        return $this->createQueryBuilder('q')
+            ->join('q.answers', 'a')
+            ->addSelect('a')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    // /**
+    //  * @return Question[] Returns an array of Question objects
+    //  */
+    public function findAllActive()
+    {
+        return $this->createQueryBuilder('q')
+            ->andWhere('q.isActive = :val')
+            ->setParameter('val', true)
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Question[] Returns an array of Question objects
     //  */
