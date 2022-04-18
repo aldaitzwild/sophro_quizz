@@ -40,6 +40,16 @@ class GifResultManager {
         'rWbbNv8E0JBq8',
         '10D6706EHfsMLK',
         'iqZGcl1AKeHja',
+        'mGK1g88HZRa2FlKGbz',
+        '3oEjI5VtIhHvK37WYo',
+        '3o7abGQa0aRJUurpII',
+        'ely3apij36BJhoZ234',
+        'TEFplLVRDMWBi',
+        'WCQ6rN7URbbVkS0qTT',
+        '9g8PH1MbwTy4o',
+        'wue4QtxncWuE8',
+        'l8XYZYdlOHSrS',
+        'yWVotoBE3Jpn2',
     ];
     private $failureGifs = [
         'ceeN6U57leAhi',
@@ -72,6 +82,16 @@ class GifResultManager {
         'EVbEdEW3kuu0o',
         'sRb7yNtTJAtZS',
         'Z9jqlziozpC00',
+        'zFq6QnA8g7iuI',
+        'vPN3zK9dNL236',
+        '9dgnO4jts7kmsFcSPq',
+        '3oFyDpijVlI0bSoB8Y',
+        'm8eIbBdkJK7Go',
+        'BvLBKDhHSZdAY',
+        'xVIkfXYGTJeZKilg3p',
+        'UvDeXMXQ3riKHGLLpM',
+        'U7W0IEsJvX3MxWsL9t',
+        'XzW8jH4RqAcqGGeEeU',
     ];
 
     public function getSuccessGif(): string 
